@@ -1,3 +1,3 @@
-module hello-world
+module golang
 
 go 1.24.3
