@@ -18,5 +18,5 @@
 ## Day 1 (6/7/25)
 - learnt imperative programming
 - learnt structured programing
-- used maps to do a word count
+- used maps to do a word count and letter count
 - studied variables
