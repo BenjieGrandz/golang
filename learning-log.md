@@ -20,3 +20,4 @@
 - learnt structured programing
 - used maps to do a word count and letter count
 - studied variables
+- did two-sum in leetcode

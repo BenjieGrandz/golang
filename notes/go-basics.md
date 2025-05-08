@@ -15,5 +15,7 @@ func main() {
 - Long way to declare variabls
 - wallrus declaration :=
 - declaration and initialization (just as their name suggests)
+- walrus operator cannot be used to initialize global variables
+
 
 ---
