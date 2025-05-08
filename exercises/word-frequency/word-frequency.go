@@ -18,7 +18,7 @@ func wordFrequency(s string) map[string]int {
 	}
 
 	// output the map
-	for word, count := range wordCounts{	// word is the key and count is the value
+	for word, count := range wordCounts {	// word is the key and count is the value
 		fmt.Printf("%s: %d\n", word, count)
 	}
 
@@ -27,7 +27,7 @@ func wordFrequency(s string) map[string]int {
 
 func main() {
 	s := "go go gophers are awesome go"
-	fmt.Println(wordFrequency(s))
+	wordFrequency(s)
 }
 
 // map iteration is randomized thus the printf func
