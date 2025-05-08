@@ -40,8 +40,8 @@ This plan is designed for 4 weeks of focused learning (~6 hours/day) covering im
 
 1 hour					Imperative / Structured Programming (Week 1 only)
 1.5 hours				Go Language Learning
-1.5 hours				Algorithms (learning + coding problems)
-1 hour					Networking / Security
+1.5 hours				Algorithms (learning + coding problems) (Week 2)
+1 hour					Networking / Security (week 3)
 1 hour					Go Project Work (apply what you're learning)
 
 
