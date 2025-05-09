@@ -4,9 +4,9 @@ import "fmt"
 
 func revString(s string) string {
 	rev := ""
-	l := len(s)
+	l := len(s)-1
 
-	for i := l - 1; i >= 0; i-- {
+	for i := l ; i >= 0; i-- {
 		rev += string(s[i])
 	}
 	return rev
