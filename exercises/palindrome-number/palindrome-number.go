@@ -9,7 +9,8 @@ func palindromeNumber(x int) bool {
 
 	rev := 0
 	for x > rev {
-		rev = (rev*10)  + x%10
+		digit := x%10
+		rev = (rev*10) + digit
 		x /= 10
 	}
 
