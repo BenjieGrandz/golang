@@ -23,4 +23,11 @@ func main() {
 
 ## Constants
 
--
+- declaration and initialisation
+
+<pre> ``` const NAME = "bwanaChairman" ``` <pre>
+
+- numeric const has no type untill it is used in a situation that can help it infer the type
+- performs arithmethic manipulation with infinite/arbitrary precision
+- this means that it has no limits
+- can be used anywhere
