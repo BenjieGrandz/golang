@@ -21,3 +21,17 @@
 - used maps to do a word count and letter count
 - studied variables
 - did two-sum in leetcode
+
+---
+## Day 2
+
+
+---
+## Day 3
+
+- covered palindrome number in **leetcode**
+- did the same while factoring in over flow -1 << 33 and (1 << 33) - 1 
+- studied go basics (variables)
+- need to work on a proper plan of attack for coding exercises
+- decided to start using gofmt for forating file before commiting
+- need to remember to revise before and after finishing studies
