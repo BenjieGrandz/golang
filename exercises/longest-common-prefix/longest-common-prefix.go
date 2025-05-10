@@ -10,7 +10,7 @@ func longestCommonPrefix (strs string) string {
 	// find the shortest prefix by looping through array to compare length of strings
 	shortest := len(strs[0])
 	for _, str := range strs {
-		if shortest < len(str) {
+		if shortest > len(str) {
 			shortest = len(str)
 		}
 	}
