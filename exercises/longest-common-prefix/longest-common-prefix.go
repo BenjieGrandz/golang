@@ -14,4 +14,21 @@ func longestCommonPrefix (strs string) string {
 			shortest = len(str)
 		}
 	}
+
+
+}
+
+func main() {
+    // Test cases from examples
+    testCases := [][]string{
+        {"flower", "flow", "flight"},
+        {"dog", "racecar", "car"},
+        {},
+        {"a"},
+        {"ab", "abc", "abcd"},
+    }
+    
+    for _, testCase := range testCases {
+        fmt.Printf("Input: %v\nOutput: %q\n\n", testCase, longestCommonPrefix(testCase))
+    }
 }
