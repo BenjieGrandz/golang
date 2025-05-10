@@ -15,7 +15,17 @@ func longestCommonPrefix (strs string) string {
 		}
 	}
 
+	for i := 0; i < shortest ; i++ {
+		target := strs[0][i]
 
+		for _, char := range strs {
+			if str[i] != target {
+				return strs[0][:i]
+			}
+		}
+	}
+
+	return strs[0][:shortest]
 }
 
 func main() {
