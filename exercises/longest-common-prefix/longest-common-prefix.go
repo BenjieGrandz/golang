@@ -2,7 +2,7 @@ package main
 
 import "fmt" 
 
-func longestCommonPrefix (strs string) string {
+func longestCommonPrefix (strs []string) string {
 	if len(strs) == 0 {
 		return ""
 	}
@@ -19,7 +19,7 @@ func longestCommonPrefix (strs string) string {
 		target := strs[0][i]
 
 		for _, char := range strs {
-			if str[i] != target {
+			if char[i] != target {
 				return strs[0][:i]
 			}
 		}
