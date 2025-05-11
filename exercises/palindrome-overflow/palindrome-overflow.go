@@ -2,10 +2,11 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
 func reverse(x int) int {
-	const INTMAX = (1 << 33) - 1
+	var INTMAX = math.Pow(2, 31)
 	const INTMIN = -1 << 33
 
 	result := 0
@@ -14,7 +15,7 @@ func reverse(x int) int {
 		digit := x % 10
 		x /= 10
 
-		if result > INTMAX/10 || (result == INTMAX/10 && digit > 7) {
+		if result > int(INTMAX/10) || (result == int(INTMAX/10) && digit > 7) {
 			return 0
 		}
 		if result < INTMIN/10 || (result == INTMIN/10 && digit < -8) {
