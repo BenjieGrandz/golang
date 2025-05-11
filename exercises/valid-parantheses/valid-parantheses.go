@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func validParantheses(s string) bool {
+func isValid(s string) bool {
 	stack := []int{}
 
 }
