@@ -4,6 +4,11 @@ import "fmt"
 
 func isValid(s string) bool {
 	stack := []int{}
+	bracketMap := map[rune]rune {
+		')' : '(',
+		']' : '[',
+		'}' : '{',
+	}
 
 }
 
