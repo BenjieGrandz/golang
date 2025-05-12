@@ -27,6 +27,18 @@ func main() {
 	}
 
 	fmt.Println("Names have been written into the file")
+
+	// read from the file
+
+	file, err = os.Open("names.txt")
+	if err != nil {
+		fmt.Println("Can't read file due to the following error", err)
+		return
+	}
+
+	fmt.Println("Reading the names in the file")
+
+	
 }
 
 // file, err := os.Create("file.txt")
