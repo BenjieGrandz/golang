@@ -18,7 +18,15 @@ func main() {
 	}
 	defer file.Close()
 
+	for _, name := range names {
+		_, err := file.WriteString(name + "\n")
+		if err != nil {
+			fmt.Println("Error writting name to file :", err)
+			return 
+		}
+	}
 
+	fmt.Println("Names have been written into the file")
 }
 
 // file, err := os.Create("file.txt")
