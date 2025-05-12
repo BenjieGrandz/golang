@@ -19,8 +19,16 @@ func main() {
         {Name: "Bob", Age: 25},
         {Name: "Charlie", Age: 40},
     }
+		var person Person 
+	person.Age = 30
+	person.Name = "Benjie"
+
+	people = append(people, person)
+
 
     for _, person := range people {
         person.Greet()
     }
+
+
 }
