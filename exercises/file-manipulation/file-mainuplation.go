@@ -17,6 +17,7 @@ func main() {
 	}
 	defer file.Close()
 
+	// writting name into file (CRUD)
 	for _, name := range names {
 		_, err := file.WriteString(name + "\n")
 		if err != nil {
