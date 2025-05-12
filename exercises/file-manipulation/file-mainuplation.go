@@ -3,7 +3,6 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"io"
 	"os"
 )
 
@@ -38,7 +37,15 @@ func main() {
 
 	fmt.Println("Reading the names in the file")
 
-	
+    scanner := bufio.NewScanner(file)
+    for scanner.Scan() {
+        line := scanner.Text()
+        fmt.Println(line)
+    }
+
+    if err := scanner.Err(); err != nil {
+        fmt.Println("Error reading from file:", err)
+    }
 }
 
 // file, err := os.Create("file.txt")
