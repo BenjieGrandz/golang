@@ -6,18 +6,23 @@ import (
 )
 
 func wordFrequency(s string) map[string]int {
-	wordCount := make(map[string]int)
+	// empty map i.e wordCOunts := {}
+	wordCounts := make(map[string]int)
+
+	// splits string to slice i.e words = ["go", "go"....]
 	words := strings.Fields(s)
 
+	// loop through each word and update map
 	for _, word := range words {
-		wordCount[word]++
+		wordCounts[word]++
 	}
 
-	for word, count := range wordCount {
-		fmt.Println(word, count)
+	// output the map
+	for word, count := range wordCounts {	// word is the key and count is the value
+		fmt.Printf("%s: %d\n", word, count)
 	}
 
-	return wordCount
+	return wordCounts
 }
 
 func main() {
