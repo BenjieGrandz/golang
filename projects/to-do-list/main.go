@@ -41,13 +41,13 @@ func main() {
 
 // add functions her ordered logically and by importance
 
-func addTask(args []string) {
+func addTask(args string) {
 	if len(args) < 1 {
 		fmt.Println("Kindly add Description")
 	}
 
 	// first argument is used as description
-	desc := args[0]
+	desc := string(args[0])
 
 	// Append new Task to slice
 	// struct literal 
