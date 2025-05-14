@@ -34,7 +34,9 @@ func main() {
 	case "done":
 		markDone(os.Args[2:])
 	case "delete":
-		fmt.Println("Unknown Command", command)
+		deleteTask(os.Args[2:])
+	default :
+		fmt.Println("Unknown Command", command)		
 	}
 }
 
