@@ -58,6 +58,19 @@ func addTask(args []string) {
 }
 
 func listTasks(args []string) {
+	if len(args) == 0 {
+		fmt.Println("No Tasks Available")
+	}
+
+	for i, task := range tasks {
+		status := "[ ]"
+		if task.Done {
+			status = "[X]"
+		}
+
+		// Print it out
+		fmt.Println("%d. %s : %s\n", i+1, status, task.Description)
+	}
 
 }
 
