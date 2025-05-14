@@ -6,16 +6,15 @@ import (
 	"strconv"
 )
 
-// Task reps on to do item with a desctription and done status
+// Task reps one to do item with a desctription and done status
 type Task struct {
 	Description	string
 	Done	bool
 }
 
 // slice that holds all our current tasks
-var tasks []Task
 // tasks := []Task{}
-
+var tasks []Task
 
 func main() {
 	if len(os.Args) < 2 {
@@ -41,13 +40,14 @@ func main() {
 
 // add functions her ordered logically and by importance
 
-func addTask(args string) {
+func addTask(args []string) {
 	if len(args) < 1 {
 		fmt.Println("Kindly add Description")
+		return
 	}
 
 	// first argument is used as description
-	desc := string(args[0])
+	desc := args[0]
 
 	// Append new Task to slice
 	// struct literal 
@@ -55,4 +55,26 @@ func addTask(args string) {
 	tasks = append(tasks, Task{Description: desc})
 
 	fmt.Println("Added Task: ", desc)
+}
+
+func deleteTask(args []string){
+	if len(args) < 1 {
+		fmt.Println("Kindly add Description")
+		return
+	}
+
+	// convert the args to an int (task number)
+	index, err := strconv.Atoi(args[0])
+	if err != nil || index < 1 || index > len(tasks) {
+		fmt.Println("Invalid Task Number")
+		return
+	}
+
+	// store the desc for feedback before deletion
+	desc := tasks[index-1].Description
+
+	// remove task by slicing around it
+	tasks = append(tasks[:index-1], tasks[index:]...)
+
+	fmt.Println("Deleted task: ", desc)
 }
