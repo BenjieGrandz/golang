@@ -25,7 +25,7 @@ func longestCommonPrefix (strs []string) string {
 		}
 	}
 
-	return strs[0][:shortest]
+	return strs[0][:shortest ]
 }
 
 func main() {
