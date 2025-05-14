@@ -50,8 +50,7 @@ func addTask(args []string) {
 	desc := args[0]
 
 	// Append new Task to slice
-	// struct literal 
-	// basically creates a new Task struct value assigning desc to the decription field leaving done field default(false)
+	// struct literal : basically creates a new Task struct value assigning desc to the decription field leaving done field default(false)
 	tasks = append(tasks, Task{Description: desc})
 
 	fmt.Println("Added Task: ", desc)
