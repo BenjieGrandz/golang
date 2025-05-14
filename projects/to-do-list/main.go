@@ -44,7 +44,7 @@ func main() {
 
 func addTask(args []string) {
 	if len(args) < 1 {
-		fmt.Println("Kindly add Description")
+		fmt.Println("Usage: add <write description>")
 		return
 	}
 
