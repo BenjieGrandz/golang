@@ -56,8 +56,8 @@ func addTask(args []string) {
 	fmt.Println("Added Task: ", desc)
 }
 
-func listTasks(args []string) {
-	if len(args) == 0 {
+func listTasks() {
+	if len(tasks) == 0 {
 		fmt.Println("No Tasks Available")
 	}
 
@@ -68,12 +68,27 @@ func listTasks(args []string) {
 		}
 
 		// Print it out
-		fmt.Println("%d. %s : %s\n", i+1, status, task.Description)
+		fmt.Printf("%d. %s : %s\n", i+1, status, task.Description)
 	}
 
 }
 
 func markDone(args []string) {
+	if len(args) < 1 {
+		fmt.Println("Kindly add Description")
+		return
+	}
+
+	// convert the args to an int (task number)
+	index, err := strconv.Atoi(args[0])
+	if err != nil || index < 1 || index > len(tasks) {
+		fmt.Println("Invalid Task Number")
+		return
+	}
+
+	// Mark the corresponding tasks as done
+	tasks[index-1].Done = true
+	fmt.Println("Marked as done", tasks[index-1].Description)
 
 }
 
