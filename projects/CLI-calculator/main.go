@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	"errors"
 )
 
 func main() {
@@ -30,6 +31,9 @@ func main() {
 	case "sub":
 		fmt.Println("Result: ", a-b)
 	case "div":
+		if b <= 0 {
+			fmt.Println("Cannot divide by zero or negatives") 
+		}
 		fmt.Println("Result: ", a/b)
 	case "multi":
 		fmt.Println("Result: ", a*b)
