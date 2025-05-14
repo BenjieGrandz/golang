@@ -13,8 +13,8 @@ type Task struct {
 }
 
 // slice that holds all our current tasks
-// var tasks []Task
-tasks := []string{}
+var tasks []Task
+// tasks := []Task{}
 
 
 func main() {
@@ -29,7 +29,7 @@ func main() {
 	// switch through commands
 	switch command {
 	case "add":
-		addTask(os.Args[2:])
+		addTask(os.Args[2:]) // check if just normal indexing works as well
 	case "list":
 		listTasks()
 	case "done":
@@ -37,6 +37,22 @@ func main() {
 	case "delete":
 		fmt.Println("Unknown Command", command)
 	}
+}
 
+// add functions her ordered logically and by importance
 
+func addTask(args []string) {
+	if len(args) < 1 {
+		fmt.Println("Kindly add Description")
+	}
+
+	// first argument is used as description
+	desc := args[0]
+
+	// Append new Task to slice
+	// struct literal 
+	// basically creates a new Task struct value assigning desc to the decription field leaving done field default(false)
+	tasks = append(tasks, Task{Description: desc})
+
+	fmt.Println("Added Task: ", desc)
 }
