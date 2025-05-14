@@ -61,6 +61,7 @@ func addTask(args []string) {
 func listTasks() {
 	if len(tasks) == 0 {
 		fmt.Println("No Tasks Available")
+		return
 	}
 
 	for i, task := range tasks {
