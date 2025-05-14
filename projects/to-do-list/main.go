@@ -57,6 +57,14 @@ func addTask(args []string) {
 	fmt.Println("Added Task: ", desc)
 }
 
+func listTasks(args []string) {
+
+}
+
+func markDone(args []string) {
+
+}
+
 func deleteTask(args []string){
 	if len(args) < 1 {
 		fmt.Println("Kindly add Description")
