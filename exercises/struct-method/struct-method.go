@@ -8,7 +8,7 @@ type Person struct {
     Age  int
 }
 
-// Greet prints a greeting from the person.
+// Greet prints a greeting from the person.  (method)
 func (p Person) Greet() {
     fmt.Printf("Hi, my name is %s and I am %d years old.\n", p.Name, p.Age)
 }
