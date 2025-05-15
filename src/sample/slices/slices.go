@@ -42,6 +42,9 @@ func main() {
     t := []string{"g", "h", "i"}
     fmt.Println("dcl:", t)
 
+	t3 := append(t[:1], t[2:]...)
+	fmt.Println("chopper: ", t3)
+
     t2 := []string{"g", "h", "i"}
     if slices.Equal(t, t2) {
         fmt.Println("t == t2")
