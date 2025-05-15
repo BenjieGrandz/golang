@@ -40,3 +40,4 @@
 ## WEEK 2
 
 - studied about arrays
+- studied slices
