@@ -35,3 +35,8 @@
 - need to work on a proper plan of attack for coding exercises
 - decided to start using gofmt for forating file before commiting
 - need to remember to revise before and after finishing studies
+
+
+## WEEK 2
+
+- studied about arrays
