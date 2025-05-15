@@ -6,11 +6,12 @@ import (
 )
 
 func main() {
-
+	// uninitialized slice is nil and has 0 len
     var s []string
     fmt.Println("uninit:", s, s == nil, len(s) == 0)
 
-    s = make([]string, 3)
+	// len - 3 and cap - 5
+    s = make([]string, 3, 5)
     fmt.Println("emp:", s, "len:", len(s), "cap:", cap(s))
 
     s[0] = "a"
