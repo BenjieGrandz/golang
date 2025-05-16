@@ -32,5 +32,15 @@ func (c circle) circumference() float64 {
 }
 
 func main() {
-	var s square = 
+	shapes := []shape{
+		square{length: 15.2},
+		circle{radius: 15.2},
+		circle{radius: 15.2},
+		square{length: 4.9},
+	}
+
+	for _, v := range shapes {
+		printShapeInfo(v)
+		fmt.Println("---")
+	}
 }
