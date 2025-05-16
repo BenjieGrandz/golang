@@ -5,6 +5,7 @@ import (
 	"math"
 )
 
+// shapes interface
 type shapes interface{
 	area() float64
 	circumference() float64
