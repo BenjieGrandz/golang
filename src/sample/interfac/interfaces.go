@@ -5,6 +5,11 @@ import (
 	"math"
 )
 
+type shapes interface{
+	area() float64
+	circumference() float64
+}
+
 type square struct {
 	length float64
 }
@@ -31,16 +36,21 @@ func (c circle) circumference() float64 {
 	return math.Pi * (c.radius * 2)
 }
 
+func printShapeInfo(s shapes){
+	fmt.Println("Area is: ", s.area())
+	fmt.Println("Circumference is: ", s.circumference())
+}
+
 func main() {
-	shapes := []shape{
+	shapes := []shapes{
 		square{length: 15.2},
 		circle{radius: 15.2},
 		circle{radius: 15.2},
 		square{length: 4.9},
 	}
 
-	for _, v := range shapes {
+	for i, v := range shapes {
 		printShapeInfo(v)
-		fmt.Println("---")
+		fmt.Printf("---%d \n", i+1)
 	}
 }
