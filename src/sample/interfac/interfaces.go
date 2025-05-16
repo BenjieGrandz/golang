@@ -30,3 +30,7 @@ func (c circle) area() float64 {
 func (c circle) circumference() float64 {
 	return math.Pi * (c.radius * 2)
 }
+
+func main() {
+	var s square = 
+}
