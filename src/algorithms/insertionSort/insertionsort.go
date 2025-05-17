@@ -8,11 +8,11 @@ func main() {
 }
 
 func insertSort(n []int) []int {
-	for i := 0; i < len(n)-1; i++ {
+	for i := 0; i < len(n); i++ {
 		key := n[i]
 		j := i - 1
 
-		for j >= 0 && n[j+1] > key {
+		for j >= 0 && n[j] > key {
 			n[j+1] = n[j]
 			j--
 		}
