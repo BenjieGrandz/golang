@@ -9,15 +9,21 @@ func main() {
 }
 
 func bubbleSort(num []int) []int {
-	l := len(num)
+	n := len(num)
 
-	for i := 0; i < l; i++ {
-		for j := i + 1; j < l; j++ {
-			if num[i] > num[j] {
-				num[i], num[j] = num[j], num[i]
+	for i:=0; i<n-1; i++ {
+		for j:=0; j<n-i-1;j++ {
+			swapped := true
+
+			if num[j] > num[J+1] {
+				num[j], num[j+1] = num[j+1],num[j]
+				swapped = false
+			}
+
+			if !swapped {
+				break
 			}
 		}
 	}
-
 	return num
 }
