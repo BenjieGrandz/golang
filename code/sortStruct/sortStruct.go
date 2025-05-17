@@ -13,5 +13,5 @@ func main(){
 
 	}
 
-	
+	sortStructByAge(c)
 }
