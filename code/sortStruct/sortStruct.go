@@ -7,6 +7,7 @@ type Person struct {
     Name string
     Age  int
 }
+j
 
 func main(){
 	customerBase := map[string]int{
