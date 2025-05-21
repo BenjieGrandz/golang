@@ -9,9 +9,9 @@ func main(){
 
 // implementing linear search
 func linearS(n []int, target int) int {
-	for _, v := range n {
+	for i, v := range n {
 		if v == target {
-			return v
+			return i
 		}
 	}
 
