@@ -10,7 +10,7 @@ func main() {
 
 func binaryS(arr []int, target int) int {
 	low := 0
-	high := len(arr)-1
+	high := len(arr) - 1
 
 	for low <= high {
 		mid := low + (high-low)/2
@@ -20,7 +20,7 @@ func binaryS(arr []int, target int) int {
 		} else if arr[mid] < target {
 			low = mid + 1
 		} else {
-			high = mid -1
+			high = mid - 1
 		}
 	}
 
