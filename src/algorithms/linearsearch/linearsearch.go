@@ -2,8 +2,8 @@ package main
 
 import "fmt"
 
-func main(){
-	x := []int{3, 4, 7, 2, 8,15}
+func main() {
+	x := []int{3, 4, 7, 2, 8, 15}
 	fmt.Println(linearS(x, 2))
 }
 
