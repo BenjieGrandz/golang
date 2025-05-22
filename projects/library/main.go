@@ -1,22 +1,22 @@
 package main
 
 import (
-	"fmt"
-	"strings"
 	"bufio" // for full line input
+	"fmt"
 	"os"
 	"sort"
+	"strings"
 )
 
 type Books struct {
-	ID int
-	Title string
+	ID     int
+	Title  string
 	Author string
 }
 
 func searchByTitle(book []Books, Title string) *Books {
 	for _, b := range book {
-		if strings.EqualFold(b.Title, Title){ // case sensitive
+		if strings.EqualFold(b.Title, Title) { // case sensitive
 			return &b
 		}
 	}
@@ -24,7 +24,7 @@ func searchByTitle(book []Books, Title string) *Books {
 	return nil
 }
 
-func binarySearchByID(book []Books, ID int) *Books{
+func binarySearchByID(book []Books, ID int) *Books {
 	low, high := 0, len(book)-1
 
 	for low <= high {
