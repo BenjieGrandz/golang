@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strings"
 	//"sort"
 )
 
@@ -27,7 +28,7 @@ func main() {
 
 func searchByTitle(book []Books, title string) *Books {
 	for _, b := range book {
-		if b.title == title {
+		if strings.EqualFold(b.title, title){ // case sensitive
 			return &b
 		}
 	}
