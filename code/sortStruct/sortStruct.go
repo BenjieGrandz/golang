@@ -7,12 +7,13 @@ type Person struct {
     Name string
     Age  int
 }
-j
 
 func main(){
-	customerBase := map[string]int{
-
+	customerBase := []Person{
+		{Name: "Benjie", Age: 30},
+		{Name: "Nyaigoti", Age: 23},
+		{Name: "Mary", Age: 70},
+		{Name: "Shantelle", Age: 8},
 	}
 
-	sortStructByAge(c)
 }
