@@ -5,7 +5,7 @@ import (
 	"strings"
 	"bufio" // for full line input
 	"os"
-	//"sort"
+	"sort"
 )
 
 type Books struct {
@@ -65,6 +65,12 @@ func main() {
 		fmt.Println("Book not found by Title.")
 	}
 
+	// sort books first
+	sort.Slice(book, func(i, j int) bool) {
+		return book[i].ID < book[j].ID
+	}
+
+	// compare the books by ID
 	resultByBinary := binarySearchByID(book, 3)
 	if resultByBinary != nil {
 		fmt.Println("Book found by ID: ", *resultByBinary)
