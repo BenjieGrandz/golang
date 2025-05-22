@@ -66,12 +66,16 @@ func main() {
 	}
 
 	// sort books first
-	sort.Slice(book, func(i, j int) bool) {
+	sort.Slice(book, func(i, j int) bool {
 		return book[i].ID < book[j].ID
-	}
+	})
 
 	// compare the books by ID
-	resultByBinary := binarySearchByID(book, 3)
+	var IDinput = 0
+	fmt.Println("Please enter ID of the book: ")
+	fmt.Scan(&IDinput)
+
+	resultByBinary := binarySearchByID(book, IDinput)
 	if resultByBinary != nil {
 		fmt.Println("Book found by ID: ", *resultByBinary)
 	} else {
