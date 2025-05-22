@@ -3,35 +3,44 @@ package main
 import (
 	"fmt"
 	"strings"
+	"bufio" // for full line input
+	"os"
 	//"sort"
 )
 
 type Books struct {
 	ID int
-	title string
-	author string
+	Title string
+	Author string
 }
 
-func main() {
-	book := []Books{
-		{ID: 3, title: "Golang Practice", author: "Ben Koimett"},
-		{ID: 2, title: "Clean code", author: "Robert C. Martin "},
-		{ID: 1, title: "The Pragmatic Programmer", author: "Andrew Hunt"},
-	}
-
-	t:=""
-	fmt.Println("Enter title: ")
-	fmt.Scan(&t)
-
-	fmt.Println(searchByTitle(book, t))
-}
-
-func searchByTitle(book []Books, title string) *Books {
+func searchByTitle(book []Books, Title string) *Books {
 	for _, b := range book {
-		if strings.EqualFold(b.title, title){ // case sensitive
+		if strings.EqualFold(b.Title, Title){ // case sensitive
 			return &b
 		}
 	}
 
 	return nil
+}
+
+func main() {
+	book := []Books{
+		{ID: 3, Title: "Golang Practice", Author: "Ben Koimett"},
+		{ID: 2, Title: "Clean code", Author: "Robert C. Martin "},
+		{ID: 1, Title: "The Pragmatic Programmer", Author: "Andrew Hunt"},
+	}
+
+	// handle user input
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Println("Enter Title: ")
+	t, _ := reader.ReadString('\n')
+	t = strings.TrimSpace(t)
+
+	resultByTitle := searchByTitle(book, t)
+	if resultByTitle != nil {
+		fmt.Println("Book found by Title: ", *resultByTitle)
+	} else {
+		fmt.Println("Book not found by Title.")
+	}
 }
