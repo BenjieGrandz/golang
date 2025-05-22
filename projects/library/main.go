@@ -9,7 +9,7 @@ type books struct {
 }
 
 func main() {
-	books := []books{
+	book := []books{
 		{ID: 3, title: "Golang Practice", author: "Ben Koimett"},
 		{ID: 2, title: "Clean code", author: "Robert C. Martin "},
 		{ID: 1, title: "The Pragmatic Programmer", author: "Andrew Hunt"},
