@@ -34,7 +34,11 @@ func main() {
 	// handle user input
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Println("Enter Title: ")
-	t, _ := reader.ReadString('\n')
+	t, err := reader.ReadString('\n')
+	if err != nil {
+		fmt.Println("Please Enter Title!", err)
+		return
+	}
 	t = strings.TrimSpace(t)
 
 	resultByTitle := searchByTitle(book, t)
