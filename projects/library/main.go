@@ -24,6 +24,23 @@ func searchByTitle(book []Books, Title string) *Books {
 	return nil
 }
 
+func binarySearchByID(book []Books, ID int) *Books{
+	low, high := 0, len(book)-1
+
+	for low <= high {
+		mid := low + (high-low)/2
+		if book[mid].ID == ID {
+			return &book[mid]
+		} else if book[mid].ID < ID {
+			low = mid + 1
+		} else {
+			high = mid - 1
+		}
+	}
+
+	return nil
+}
+
 func main() {
 	book := []Books{
 		{ID: 3, Title: "Golang Practice", Author: "Ben Koimett"},
@@ -46,5 +63,12 @@ func main() {
 		fmt.Println("Book found by Title: ", *resultByTitle)
 	} else {
 		fmt.Println("Book not found by Title.")
+	}
+
+	resultByBinary := binarySearchByID(book, 3)
+	if resultByBinary != nil {
+		fmt.Println("Book found by ID: ", *resultByBinary)
+	} else {
+		fmt.Println("Book not found by ID")
 	}
 }
