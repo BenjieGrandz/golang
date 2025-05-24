@@ -9,7 +9,7 @@ import (
 
 // sorting algorithms
 func bubbleSort(arr []int) []int {
-	n := len(array)
+	n := len(arr)
 
 	for i := 0; i < n-1; i++ {
 		swapped := false
