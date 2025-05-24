@@ -85,7 +85,14 @@ func main() {
 	// reader := bufio.NewReader(os.Stdin)
 	// fmt.Println("Enter numbers: ")
 	// n, _ := reader.ReadString('\n')
-	// x := strconv.Atoi(n)
+	// fields := strings.Fields(line) // separates the
+	// nums:=[]int{}
+	// for _, f := range fields {
+	//	num, err := strconv.Aoit(f)
+	//	if err == nil {
+	//		nums = append(nums, num)
+	//	}
+	// }
 
 	// length of array
 	var arrLen int
