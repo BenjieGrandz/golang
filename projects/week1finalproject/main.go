@@ -44,6 +44,19 @@ func insertionSort(arr []int) []int {
 	return arr
 }
 
+// merge sort algorithm
+func mergeSort(arr []int) []int {
+	if len(arr) <= 1 {
+		return arr
+	}
+
+	mid := len(arr)/2
+	left := mergeSort(arr[:mid])
+	right := mergeSort(arr[mid:])
+
+	return merge(left, right)
+}
+
 func main() {
 	nums := []int{}
 
