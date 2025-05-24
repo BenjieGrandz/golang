@@ -36,8 +36,9 @@ func insertionSort(arr []int) []int {
 		key := arr[i]
 		j := i - 1
 
-		for j > 0 && arr[j] > key {
+		for j >= 0 && arr[j] > key {
 			arr[j+1] = arr[j]
+			j--
 		}
 		arr[j+1] = key
 	}
@@ -99,6 +100,9 @@ func main() {
 		fmt.Scan(&valueToSort)
 		nums = append(nums, valueToSort)
 	}
+
+	// flush the new line
+	bufio.NewReader(os.Stdin).ReadString('\n')
 
 	// choose sorting algorithm
 	selectAlgorithm := bufio.NewReader(os.Stdin)
