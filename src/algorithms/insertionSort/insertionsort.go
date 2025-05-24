@@ -8,7 +8,7 @@ func main() {
 }
 
 func insertSort(n []int) []int {
-	for i := 0; i < len(n); i++ {	// watch this out
+	for i := 1; i < len(n); i++ {	// watch this out
 		key := n[i]
 		j := i - 1
 
