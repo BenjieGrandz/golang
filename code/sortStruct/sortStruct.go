@@ -8,11 +8,20 @@ type Person struct {
     Age  int
 }
 
-func linearSort(n []int) []int {
+func insertionSort(n []int) []int {
 	for i:=0; i<len(n); i++ {
-		key:n[i]
+		key:= n[i]
 		j := i-1
+
+		for j >= 0 && n[j] > key {
+			n[j+1] = n[j]
+			j--
+		}
+
+		n[j+1] = key
 	}
+
+	return n
 
 }
 
@@ -23,5 +32,7 @@ func main(){
 		{Name: "Mary", Age: 70},
 		{Name: "Shantelle", Age: 8},
 	}
+
+	fmt.Println(insertionSort(customerBase.Age))
 
 }
