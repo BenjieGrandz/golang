@@ -94,11 +94,11 @@ func main() {
 	s = strings.TrimSpace(s)
 
 	switch s {
-	case 1:
+	case "A":
 		fmt.Println("This is a BubbleSort: ", bubbleSort(nums))
-	case 2:
+	case "B":
 		fmt.Println("This is a BubbleSort: ", insertionSort(nums))
-	case 3:
+	case "C":
 		fmt.Println("This is a BubbleSort: ", mergeSort(nums))
 	default:
 		fmt.Println("ERROR: You have not chosen a sorting algorithm!!")
