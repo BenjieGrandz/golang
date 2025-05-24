@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	// "strconv"
 	"strings"
 )
 
@@ -78,17 +79,30 @@ func merge(left, right []int) []int {
 }
 
 func main() {
-	nums := []int{}
 
 	// read user input for values to be sorted
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Println("Enter numbers: ")
-	n, _ := reader.ReadString('\n')
-	n = strings.TrimSpace(n)
+	// reader := bufio.NewReader(os.Stdin)
+	// fmt.Println("Enter numbers: ")
+	// n, _ := reader.ReadString('\n')
+	// x := strconv.Atoi(n)
+
+	// length of array
+	var arrLen int
+	fmt.Println("Enter the number of values to be sorted")
+	fmt.Scan(&arrLen)
+
+	valueToSort := 0
+	nums := []int{}
+	// new code to take in data for arrays to be sorted
+	for i:=1; i<=arrLen;i++{
+		fmt.Printf("Enter number %v:\n",i)
+		fmt.Scan(&valueToSort)
+		nums = append(nums, valueToSort)
+	}
 
 	// choose sorting algorithm
 	selectAlgorithm := bufio.NewReader(os.Stdin)
-	fmt.Println("Enter numbers: ")
+	fmt.Println("Enter sorting type you want: ")
 	s, _ := selectAlgorithm.ReadString('\n')
 	s = strings.TrimSpace(s)
 
