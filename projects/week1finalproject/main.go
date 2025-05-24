@@ -50,7 +50,7 @@ func mergeSort(arr []int) []int {
 		return arr
 	}
 
-	mid := len(arr)/2
+	mid := len(arr) / 2
 	left := mergeSort(arr[:mid])
 	right := mergeSort(arr[mid:])
 
@@ -58,7 +58,7 @@ func mergeSort(arr []int) []int {
 }
 
 // merge - used to sort and combine
-func merge(left, right []int) []int{
+func merge(left, right []int) []int {
 	result := make([]int, 0, len(left)+len(right))
 	i, j := 0, 0
 
@@ -76,7 +76,6 @@ func merge(left, right []int) []int{
 
 	return result
 }
-
 
 func main() {
 	nums := []int{}
