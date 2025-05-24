@@ -7,6 +7,28 @@ import (
 	"strings"
 )
 
+// sorting algorithms
+func bubbleSort(arr []int) []int {
+	n := len(array)
+
+	for i:=0; i<n-1; i++ {
+		swapped := false
+		
+		for j:0; j<n-i-1; j++ {
+			if arr[j] > arr[j+1] {
+				arr[j], arr[j+1] = arr[j+1], arr[j]
+				swapped = true
+			}
+		}
+
+		if !swapped {
+			break
+		}
+	}
+
+	return arr
+}
+
 func main() {
 	nums := []int{}
 
@@ -24,11 +46,11 @@ func main() {
 
 	switch s {
 	case 1:
-		fmt.Println("This is a BubbleSort: ",bubbleSort(nums))
+		fmt.Println("This is a BubbleSort: ", bubbleSort(nums))
 	case 2:
-		fmt.Println("This is a BubbleSort: ",Sort(nums))
+		fmt.Println("This is a BubbleSort: ", insertionSort(nums))
 	case 3:
-		fmt.Println("This is a BubbleSort: ",mergeSort(nums))
+		fmt.Println("This is a BubbleSort: ", mergeSort(nums))
 	default:
 		fmt.Println("ERROR: You have not chosen a sorting algorithm!!")
 	}
