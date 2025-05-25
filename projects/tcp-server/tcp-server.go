@@ -1,7 +1,7 @@
 package main
 
 import (
-	"bfio"
+	"bufio"
 	"fmt"
 	"net"
 )
@@ -10,10 +10,17 @@ func msin() {
 	ln, err := net.Listen('tcp', '8080')
 	if err != nil {
 		fmt.Println("Error:", err)
-		os.Exit(1)
+		return
 	}
 
-	defer ln.close()
-
+	defer ln.Close()
 	fmt.Println("Server is running on port 8080...")
+
+	for {
+		conn, err := ln.Accept()
+		if err != nil {
+			fmt.Println("Accepting error: ", err)
+			continue
+		}
+	}
 }
