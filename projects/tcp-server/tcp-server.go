@@ -17,10 +17,15 @@ func msin() {
 	fmt.Println("Server is running on port 8080...")
 
 	for {
+		// accepts, waits for and returns connection to listener object
 		conn, err := ln.Accept()
 		if err != nil {
 			fmt.Println("Accepting error: ", err)
 			continue
 		}
+
+		go handleConnection(conn)
 	}
+
+	
 }
