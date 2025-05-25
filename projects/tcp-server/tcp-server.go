@@ -1,13 +1,13 @@
 package main
 
-inmport (
+import (
 	"bfio"
 	"fmt"
 	"net"
 )
 
 func msin() {
-	ln, err := net.listen('tcp', '8080')
+	ln, err := net.Listen('tcp', '8080')
 	if err != nil {
 		fmt.Println("Error:", err)
 		os.Exit(1)
