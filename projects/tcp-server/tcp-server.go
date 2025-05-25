@@ -19,7 +19,7 @@ func main() {
 
 	for {
 		// accepts, waits for and returns connection to listener object
-		conn, err := listener.Accept()
+		conn, err := listener.Accept() // returns <net.Conn object> a 2 way connection
 		if err != nil {
 			fmt.Println("Connection error: ", err)
 			continue

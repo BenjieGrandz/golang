@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	conn, err := net.Dial("tcp", "localhost:8080")
+	conn, err := net.Dial("tcp", "localhost:8080") // if server is listening a tcp connection is established
 	if err != nil {
 		log.Println("Connection error: ", err)
 		return
@@ -23,7 +23,7 @@ func main() {
 		text, _ := bufio.NewReader(os.Stdin).ReadString('\n')
 		if text == "exit\n" {
 			fmt.Println("Closing connection.")
-			return
+			break
 		}
 
 		conn.Write([]byte(text))
