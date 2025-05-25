@@ -3,24 +3,25 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"log"
 	"net"
 )
 
 func main() {
-	ln, err := net.Listen("tcp", ":9000")
+	listener, err := net.Listen("tcp", ":8080")
 	if err != nil {
-		fmt.Println("Error:", err)
+		fmt.Println("Error starting server: ", err)
 		return
 	}
 
-	defer ln.Close()
-	fmt.Println("Server is running on port 8080...")
+	defer listener.Close()
+	log.Println("Server is running on http://localhost:8080")
 
 	for {
 		// accepts, waits for and returns connection to listener object
-		conn, err := ln.Accept()
+		conn, err := listener.Accept()
 		if err != nil {
-			fmt.Println("Accepting error: ", err)
+			fmt.Println("Connection error: ", err)
 			continue
 		}
 
@@ -31,18 +32,17 @@ func main() {
 
 func handleConnection(conn net.Conn) {
 	defer conn.Close()
-
 	reader := bufio.NewReader(conn)
 
 	for {
-		msg, err := reader.ReadString('\n')
+		message, err := reader.ReadString('\n')
 		if err != nil {
-			fmt.Println("Error: ", err)
+			fmt.Println("Client disconnected: ", err)
 			return
 		}
 
-		fmt.Print("Received: ", msg)
+		fmt.Print("Received: ", message)
 
-		conn.Write([]byte("Echo: "+ msg))
+		conn.Write([]byte("Echo: " + message))
 	}
 }
