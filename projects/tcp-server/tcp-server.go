@@ -6,8 +6,8 @@ import (
 	"net"
 )
 
-func msin() {
-	ln, err := net.Listen('tcp', '8080')
+func main() {
+	ln, err := net.Listen("tcp", ":9000")
 	if err != nil {
 		fmt.Println("Error:", err)
 		return
@@ -27,5 +27,22 @@ func msin() {
 		go handleConnection(conn)
 	}
 
-	
+}
+
+func handleConnection(conn net.Conn) {
+	defer conn.Close()
+
+	reader := bufio.NewReader(conn)
+
+	for {
+		msg, err := reader.ReadString('\n')
+		if err != nil {
+			fmt.Println("Error: ", err)
+			return
+		}
+
+		fmt.Print("Received: ", msg)
+
+		conn.Write([]byte("Echo: "+ msg))
+	}
 }
