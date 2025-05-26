@@ -14,5 +14,7 @@ func pingHandler(w http.ResponseWriter, r *http.Request ) {
 }
 
 func main() {
-
+	http.HandleFunc("/ping", pingHandler)
+	fmt.Println("Server is running on localhost:8080 ...")
+	http.ListenAndServe(":8080", nil)
 }
