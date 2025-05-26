@@ -23,9 +23,19 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+// goodbye handler function
+func goodbyeHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method == http.MethodGet {
+		fmt.Fprintln(w, "goodbye")
+	} else {
+		http.Error(w, "Method Not allowed", http.StatusMethodNotAllowed)
+	}
+}
+
 func main() {
 	http.HandleFunc("/ping", pingHandler)
 	http.HandleFunc("/hello", helloHandler)
+	http.HandleFunc("/goodbye", goodbyeHandler)
 	fmt.Println("Server is running on localhost:8080 ...")
 	http.ListenAndServe(":8080", nil)
 }
