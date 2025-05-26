@@ -5,6 +5,7 @@ import (
 	"net/http"
 )
 
+// Ping Handler FUnction
 func pingHandler(w http.ResponseWriter, r *http.Request ) {
 	if r.Method == http.MethodGet {
 		fmt.Fprintln(w, "pong")
@@ -13,8 +14,18 @@ func pingHandler(w http.ResponseWriter, r *http.Request ) {
 	}
 }
 
+// hello Handler Function
+func helloHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method == http.MethodGet {
+		fmt.Fprintln(w, "hello")
+	} else {
+		http.Error(w, "Mehtod Not Allowed ", http.StatusMethodNotAllowed)
+	}
+}
+
 func main() {
 	http.HandleFunc("/ping", pingHandler)
+	http.HandleFunc("/hello", helloHandler)
 	fmt.Println("Server is running on localhost:8080 ...")
 	http.ListenAndServe(":8080", nil)
 }
