@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"net/http"
 )
@@ -32,10 +33,22 @@ func goodbyeHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+// json / status handler
+func statusHandler(w http.ResponseWriter, r * http.Request) {
+	if r.Method == http.MethodGet {
+		w.Header().Set("Content-Type", "application/json")
+		status := map[string]string{"status" : "ok", "service" : "Go Server"}
+		json.NewEncoder(w).Encode(status)
+	} else {
+		http.Error(w, "Method not Allowed", http.StatusMethodNotAllowed)
+	}
+}
+
 func main() {
 	http.HandleFunc("/ping", pingHandler)
 	http.HandleFunc("/hello", helloHandler)
 	http.HandleFunc("/goodbye", goodbyeHandler)
+	http.HandleFunc("/status", statusHandler)
 	fmt.Println("Server is running on localhost:8080 ...")
 	http.ListenAndServe(":8080", nil)
 }
