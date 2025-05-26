@@ -2,13 +2,17 @@ package main
 
 import (
 	"fmt"
-	"nt/http"
+	"net/http"
 )
 
-func handleFunction(w ) {
-
+func pingHandler(w http.ResponseWriter, r *http.Request ) {
+	if r.Method == http.MethodGet {
+		fmt.Fprintln(w, "pong")
+	} else {
+		http.Error(w, "Method Not Allowed ", http.StatusMethodNotAllowed )
+	}
 }
 
 func main() {
-	
+
 }
