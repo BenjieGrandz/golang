@@ -82,5 +82,15 @@ func deleteTodo(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	
+	// Route: handle GET and POST on /todos
+	http.HandleFunc("/todos", func(w http.ResponseWriter, r *http.Request ) {
+		switch r.Method {
+		case http.MethodGet:
+			getTodos(w, r)
+		case http.MethodPost:
+			createTodo(w, r)
+		default:
+			http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		}
+	})
 }
