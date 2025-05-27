@@ -12,15 +12,15 @@ import (
 )
 
 type Todo struct {
-	ID int `json: "ID"`
+	ID   int    `json: "ID"`
 	Task string `json: "task"`
 }
 
 // declare shared variables
 
 var (
-	todos = []Todo{}
-	nextID = 1
+	todos   = []Todo{}
+	nextID  = 1
 	todoMux sync.Mutex
 )
 
@@ -34,7 +34,7 @@ func getTodos(w http.ResponseWriter, r *http.Request) {
 // handler for POST/ todos
 func createTodo(w http.ResponseWriter, r *http.Request) {
 	var t Todo
-	// decode the JSOn body into a Todo struct 
+	// decode the JSOn body into a Todo struct
 	if err := json.NewDecoder(r.Body).Decode(&t); err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest) // error 400
 		return
@@ -57,7 +57,7 @@ func createTodo(w http.ResponseWriter, r *http.Request) {
 func deleteTodo(w http.ResponseWriter, r *http.Request) {
 	// get dodo ID
 	idStr := strings.TrimPrefix(r.URL.Path, "/todos/")
-	id, err := strconv.Atoi(idStr) 
+	id, err := strconv.Atoi(idStr)
 	if err != nil {
 		http.Error(w, "Invalid ID", http.StatusBadRequest)
 		return
@@ -81,7 +81,7 @@ func deleteTodo(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	// Route: handle GET and POST on /todos
-	http.HandleFunc("/todos", func(w http.ResponseWriter, r *http.Request ) {
+	http.HandleFunc("/todos", func(w http.ResponseWriter, r *http.Request) {
 		switch r.Method {
 		case http.MethodGet:
 			getTodos(w, r)
@@ -92,7 +92,7 @@ func main() {
 		}
 	})
 
-	// Route : handle DELETE on /todos/{id} 
+	// Route : handle DELETE on /todos/{id}
 	http.HandleFunc("/todos/", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method == http.MethodGet {
 			deleteTodo(w, r)
