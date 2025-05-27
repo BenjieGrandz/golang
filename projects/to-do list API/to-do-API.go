@@ -2,12 +2,15 @@ package main
 
 import (
 	"encoding/json"
+	"strconv"
+	"strings"
+
 	// "fmt"
 	"net/http"
 	// "strings"
 	// "strconv"
-	"sync"
 	"log"
+	"sync"
 )
 
 type Todo struct {
@@ -54,7 +57,28 @@ func createTodo(w http.ResponseWriter, r *http.Request) {
 }
 
 func deleteTodo(w http.ResponseWriter, r *http.Request) {
+	// get dodo ID
+	idStr := strings.TrimPrefix(r.URL.Path, "/todos/")
+	id, err := strconv.Atoi(idStr) 
+	if err != nil {
+		http.Error(w, "Invalid ID", http.StatusBadRequest)
+		return
+	}
 
+	// lock before modifying shared data
+	todoMux.Lock()
+	defer todoMux.Unlock()
+
+	// search for todo by ID then remove by slicing slice
+	for i, t := range todos {
+		if t.ID == id {
+			todos = append(todos[:i], todos[i+1:]...)
+			w.WriteHeader(http.StatusNoContent) // 204 - No content
+			return
+		}
+	}
+
+	http.Error(w, "Not Found", http.StatusNotFound) // if not found
 }
 
 func main() {
