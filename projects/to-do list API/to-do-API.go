@@ -7,6 +7,7 @@ import (
 	// "strings"
 	// "strconv"
 	"sync"
+	"log"
 )
 
 type Todo struct {
