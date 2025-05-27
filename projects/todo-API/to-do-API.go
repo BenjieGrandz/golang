@@ -6,8 +6,6 @@ import (
 	"net/http"
 	"strconv"
 	"strings"
-
-	//"log"
 	"sync"
 )
 
@@ -94,7 +92,7 @@ func main() {
 
 	// Route : handle DELETE on /todos/{id}
 	http.HandleFunc("/todos/", func(w http.ResponseWriter, r *http.Request) {
-		if r.Method == http.MethodGet {
+		if r.Method == http.MethodDelete {
 			deleteTodo(w, r)
 		} else {
 			http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)

@@ -3,11 +3,11 @@ POST http://localhost:8080/todos
 Content-Type: application/json
 
 {
-    "task": "Open Milk"
+    "task": "Drink Milk"
 }
 
 ### Get all todos
 GET http://localhost:8080/todos
 
 ### Delete a todo by ID
-DELETE http://localhost:8080/todos/1
+DELETE http://localhost:8080/todos/3
