@@ -2,10 +2,12 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
+	"net/http"
 	"strconv"
 	"strings"
-	"net/http"
-	"log"
+
+	//"log"
 	"sync"
 )
 
@@ -89,4 +91,17 @@ func main() {
 			http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 		}
 	})
+
+	// Route : handle DELETE on /todos/{id} 
+	http.HandleFunc("/todos/", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method == http.MethodGet {
+			deleteTodo(w, r)
+		} else {
+			http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		}
+	})
+
+	// Start the server on port 8080
+	fmt.Println("To-DO server running on http://localhost:8080")
+	http.ListenAndServe(":8080", nil)
 }
