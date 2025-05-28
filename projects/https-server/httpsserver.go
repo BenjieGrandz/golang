@@ -54,6 +54,12 @@ func generateSelfSignedCert() (tls.Certificate, error) {
 	return tls.X509KeyPair(certPEM, keyPEM)
 }
 
+// helloHandler end point
+func helloHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintln(w, "🔒 Hello, Https world from Go!")
+}
+
 func main() {
+	
 
 }
