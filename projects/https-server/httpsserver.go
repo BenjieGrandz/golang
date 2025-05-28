@@ -81,7 +81,7 @@ func main() {
 	fmt.Println("Starting HTTPS server on https://localshost:8443")
 
 	// start serving the HTTPs - certs are in-memory so pass empty paths
-	err = server.ListenAndServe()
+	err = server.ListenAndServeTLS("","")
 	if err != nil {
 		panic(err)
 	}
