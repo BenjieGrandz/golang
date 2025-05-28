@@ -68,20 +68,20 @@ func main() {
 
 	// configure the TLS settings
 	tlsConfig := &tls.Config{
-		Certificates: []tls.Certificate(cert),
+		Certificates: []tls.Certificate{cert},
 	}
 
 	// create a http server that uses TLS
 	server := &http.Server{
 		Addr: ":8443",
-		Handler: http.Handlerfunc(helloHandler),
+		Handler: http.HandlerFunc(helloHandler),
 		TLSConfig: tlsConfig,
 	}
 
 	fmt.Println("Starting HTTPS server on https://localshost:8443")
 
 	// start serving the HTTPs - certs are in-memory so pass empty paths
-	err = server.ListenAndServe("","")
+	err = server.ListenAndServe()
 	if err != nil {
 		panic(err)
 	}
