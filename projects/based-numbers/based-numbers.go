@@ -18,5 +18,6 @@ func main() {
 		}
 	}
 
-	fmt.Printf("Then binary of %v is: %v\n", myNumber, binary)
+	fmt.Printf("Then binary of %v is:\n", myNumber)
+	fmt.Println(binary)
 }
